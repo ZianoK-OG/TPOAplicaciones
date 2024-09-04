@@ -1,4 +1,6 @@
-package Usuario;
+package model;
+
+import dto.UsuarioDAO;
 
 import java.util.Date;
 

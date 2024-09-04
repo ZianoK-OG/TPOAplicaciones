@@ -1,4 +1,7 @@
-package Usuario;
+package service;
+
+import dto.UsuarioDAO;
+import model.Usuario;
 
 public class Logeado {
 

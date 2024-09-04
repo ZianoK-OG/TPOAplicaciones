@@ -1,13 +1,14 @@
-package Usuario;
+package controller;
 
+import service.Logeado;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Date;
 
-import static Usuario.FactoriaUsuario.CrearUsuarioAdmin;
-import static Usuario.FactoriaUsuario.CrearUsuarioNormal;
+import static model.FactoriaUsuario.CrearUsuarioAdmin;
+import static model.FactoriaUsuario.CrearUsuarioNormal;
 
 
 @RestController
