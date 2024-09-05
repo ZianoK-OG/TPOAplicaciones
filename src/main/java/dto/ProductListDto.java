@@ -1,9 +1,9 @@
-package com.uade.tpo.ecommerce.dto;
+package dto;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.uade.tpo.ecommerce.model.Product;
+import model.Product;
 
 public class ProductListDto {
 	List<Product> productos = new ArrayList<Product>();

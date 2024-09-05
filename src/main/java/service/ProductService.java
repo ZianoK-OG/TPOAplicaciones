@@ -1,14 +1,14 @@
-package com.uade.tpo.ecommerce.service;
+package service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.uade.tpo.ecommerce.dto.ProductDto;
-import com.uade.tpo.ecommerce.dto.ProductListDto;
-import com.uade.tpo.ecommerce.model.Product;
-import com.uade.tpo.ecommerce.repository.ProductRepository;
+import dto.ProductDto;
+import dto.ProductListDto;
+import model.Product;
+import repository.ProductRepository;
 
 @Service
 public class ProductService {
@@ -26,11 +26,12 @@ public class ProductService {
 	
 	public ProductDto getProductById(Long id) throws Exception{
 		Product product = productRepository.findById(id).orElseThrow(() -> new Exception("Error buscando producto por id"));
-		return new ProductDto(product.getId(), product.getDesc(), product.getStock(), product.getPrecio(), product.getInformacion(), product.getDireccionImagenes());
+		return product.toDto();
 	}
 
 	public ProductDto addProduct(ProductDto productDto) {
-		Product product = productRepository.add(productDto);
-		return new ProductDto(product.getId(), product.getDesc(), product.getStock(), product.getPrecio(), product.getInformacion(), product.getDireccionImagenes());
+		Product product = productDto.toEntity();
+		productRepository.save(product);
+		return product.toDto();
 	}
 }
