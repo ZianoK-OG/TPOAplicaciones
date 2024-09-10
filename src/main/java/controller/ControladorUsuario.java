@@ -1,28 +1,43 @@
 package controller;
 
+import model.Usuario;
+import model.UsuarioAdmin;
+import model.UsuarioNormal;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.web.bind.annotation.*;
 import service.Logeado;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import service.UsuarioService;
 
 import java.util.Date;
 
-import static model.FactoriaUsuario.CrearUsuarioAdmin;
-import static model.FactoriaUsuario.CrearUsuarioNormal;
-
-
 @RestController
-@RequestMapping("/api/usuario")
+@RequestMapping("/usuario")
 public class ControladorUsuario {
 
-    @GetMapping("/normal")
-    public static void registrarUsuario(String nombreUsuario, String mail, String contrasena, String nombre, String apellido, Date fechaNacimiento){
-        CrearUsuarioNormal( nombreUsuario,  mail,  contrasena,  nombre,  apellido,  fechaNacimiento);
+    @Autowired
+    private UsuarioService usuarioService;
+
+    @PostMapping("/normal")
+    public UsuarioNormal registrarUsuarioNormal(@RequestParam String nombreUsuario,
+                                                @RequestParam String mail,
+                                                @RequestParam String contrasena,
+                                                @RequestParam String nombre,
+                                                @RequestParam String apellido,
+                                                @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date fechaNacimiento)
+    {
+        return usuarioService.crearCliente(nombreUsuario, mail, contrasena, nombre, apellido, fechaNacimiento);
     }
 
-    @GetMapping("/admin")
-    public static void registrarAdministrador(String nombreUsuario, String mail, String contrasena, String nombre, String apellido, Date fechaNacimiento){
-        CrearUsuarioAdmin( nombreUsuario,  mail,  contrasena,  nombre,  apellido,  fechaNacimiento);
+    @PostMapping("/admin")
+    public UsuarioAdmin registrarAdministrador(@RequestParam String nombreUsuario,
+                                               @RequestParam String mail,
+                                               @RequestParam String contrasena,
+                                               @RequestParam String nombre,
+                                               @RequestParam String apellido,
+                                               @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date fechaNacimiento
+    ) {
+        return usuarioService.crearAdministrador(nombreUsuario, mail, contrasena, nombre, apellido, fechaNacimiento);
     }
 
     @GetMapping("/{id}")

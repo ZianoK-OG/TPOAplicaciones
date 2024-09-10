@@ -1,16 +1,28 @@
 package model;
 
+import jakarta.persistence.*;
+
 import java.util.Date;
 
+@Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "tipo_usuario", discriminatorType = DiscriminatorType.STRING)
 public abstract class Usuario {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
     private String nombreUsuario;
+    @Column(nullable = false, unique = true)
     private String mail;
+    @Column(nullable = false)
     private String contrasena;
     private String nombre;
     private String apellido;
     private Date fechaNacimiento;
+    @Column(nullable = false)
     private String tipoUsuario;
+
 
     public Usuario(String nombreUsuario, String mail, String contrasena,
                    String nombre, String apellido, Date fechaNacimiento,
@@ -22,6 +34,10 @@ public abstract class Usuario {
         this.apellido = apellido;
         this.fechaNacimiento = fechaNacimiento;
         this.tipoUsuario = tipoUsuario;
+
+    }
+
+    public Usuario() {
 
     }
 
@@ -60,5 +76,8 @@ public abstract class Usuario {
         return tipoUsuario;
     }
 
-
+    // Getter para id
+    public long getId() {
+        return id;
+    }
 }
