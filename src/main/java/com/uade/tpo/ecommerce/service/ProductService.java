@@ -1,14 +1,14 @@
-package service;
+package com.uade.tpo.ecommerce.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import dto.ProductDto;
-import dto.ProductListDto;
-import model.Product;
-import repository.ProductRepository;
+import com.uade.tpo.ecommerce.dto.ProductDto;
+import com.uade.tpo.ecommerce.dto.ProductListDto;
+import com.uade.tpo.ecommerce.model.Product;
+import com.uade.tpo.ecommerce.repository.ProductRepository;
 
 @Service
 public class ProductService {

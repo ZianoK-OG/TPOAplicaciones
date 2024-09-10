@@ -1,11 +1,12 @@
-package service;
+package com.uade.tpo.ecommerce.service;
 
-import model.Usuario;
-import model.UsuarioAdmin;
-import model.UsuarioNormal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import repository.UsuarioRepository;
+
+import com.uade.tpo.ecommerce.model.Usuario;
+import com.uade.tpo.ecommerce.model.UsuarioAdmin;
+import com.uade.tpo.ecommerce.model.UsuarioNormal;
+import com.uade.tpo.ecommerce.repository.UsuarioRepository;
 
 import java.util.Date;
 

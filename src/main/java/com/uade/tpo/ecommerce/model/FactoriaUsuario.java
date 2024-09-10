@@ -1,8 +1,8 @@
-package model;
-
-import dto.UsuarioDAO;
+package com.uade.tpo.ecommerce.model;
 
 import java.util.Date;
+
+import com.uade.tpo.ecommerce.repository.UsuarioDAO;
 
 public class FactoriaUsuario {
 

@@ -1,4 +1,4 @@
-package model;
+package com.uade.tpo.ecommerce.model;
 
 import jakarta.persistence.*;
 
@@ -20,20 +20,16 @@ public abstract class Usuario {
     private String nombre;
     private String apellido;
     private Date fechaNacimiento;
-    @Column(nullable = false)
-    private String tipoUsuario;
 
 
     public Usuario(String nombreUsuario, String mail, String contrasena,
-                   String nombre, String apellido, Date fechaNacimiento,
-                   String tipoUsuario) {
+                   String nombre, String apellido, Date fechaNacimiento) {
         this.nombreUsuario = nombreUsuario;
         this.mail = mail;
         this.contrasena = contrasena;
         this.nombre = nombre;
         this.apellido = apellido;
         this.fechaNacimiento = fechaNacimiento;
-        this.tipoUsuario = tipoUsuario;
 
     }
 
@@ -69,11 +65,6 @@ public abstract class Usuario {
     // Getter para fechaNacimiento
     public Date getFechaNacimiento() {
         return fechaNacimiento;
-    }
-
-    // Getter para tipoUsuario
-    public String getTipoUsuario() {
-        return tipoUsuario;
     }
 
     // Getter para id

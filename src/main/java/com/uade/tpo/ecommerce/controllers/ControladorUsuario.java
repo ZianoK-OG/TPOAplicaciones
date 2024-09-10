@@ -1,18 +1,19 @@
-package controller;
+package com.uade.tpo.ecommerce.controllers;
 
-import model.Usuario;
-import model.UsuarioAdmin;
-import model.UsuarioNormal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
-import service.Logeado;
-import service.UsuarioService;
+
+import com.uade.tpo.ecommerce.model.Usuario;
+import com.uade.tpo.ecommerce.model.UsuarioAdmin;
+import com.uade.tpo.ecommerce.model.UsuarioNormal;
+import com.uade.tpo.ecommerce.service.Logeado;
+import com.uade.tpo.ecommerce.service.UsuarioService;
 
 import java.util.Date;
 
 @RestController
-@RequestMapping("/usuario")
+@RequestMapping("/api/usuario")
 public class ControladorUsuario {
 
     @Autowired

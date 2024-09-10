@@ -1,6 +1,6 @@
-package dto;
+package com.uade.tpo.ecommerce.repository;
 
-import model.Usuario;
+import com.uade.tpo.ecommerce.model.Usuario;
 
 public class UsuarioDAO {
 

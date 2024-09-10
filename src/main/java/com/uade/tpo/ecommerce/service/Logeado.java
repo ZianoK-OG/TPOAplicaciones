@@ -1,7 +1,7 @@
-package service;
+package com.uade.tpo.ecommerce.service;
 
-import dto.UsuarioDAO;
-import model.Usuario;
+import com.uade.tpo.ecommerce.model.Usuario;
+import com.uade.tpo.ecommerce.repository.UsuarioDAO;
 
 public class Logeado {
 
